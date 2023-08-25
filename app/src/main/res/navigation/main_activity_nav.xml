@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/homePageFragment">
+
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.example.nav_comp_task1_task2.HomePageFragment"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/action_homePageFragment_to_secondPageFragment"
+            app:destination="@id/secondPageFragment"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondPageFragment"
+        android:name="com.example.nav_comp_task1_task2.SecondPageFragment"
+        android:label="fragment_second_page"
+        tools:layout="@layout/fragment_second_page" >
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="myname" />
+        <argument
+            android:name="password"
+            app:argType="string"
+            android:defaultValue="mypassword" />
+        <argument
+            android:name="user"
+            app:argType="com.example.week6homework1andhomework2.User" />
+        <action
+            android:id="@+id/action_secondPageFragment_to_updatePageFragment"
+            app:destination="@id/updatePageFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_out_right"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/updatePageFragment"
+        android:name="com.example.nav_comp_task1_task2.UpdatePageFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_back_to_secondPageFragment"
+            app:destination="@id/secondPageFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_out_right"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/homePageFragment" />
+    </fragment>
+</navigation>
